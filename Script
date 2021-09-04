@@ -1,0 +1,48 @@
+
+
+
+def convert_time(time):
+  # write your code here
+  entered_Time = str(time)
+  entered_Time = entered_Time.split()
+  T_lengh = len(entered_Time)
+
+  E_time = entered_Time[0]
+  #E_am_pm= entered_Time[1]
+  E_time =E_time.split(":")
+  E_Hour = E_time[0]
+  E_Minute = E_time[1]
+
+  try:
+  	if entered_Time[1] =="pm" or entered_Time[1] =="PM":
+  		hour12 = int(E_Hour) + 12
+   		hour12 = str(hour12)
+		hour12 = hour12.replace("24", "12")
+		minute12 = int(E_Minute)
+		time12 = hour12 + ":" + str(minute12).zfill(2)
+		return time12
+
+	else:
+		hour12am = int(E_Hour)
+		hour12am = str(hour12am)
+		hour12am = hour12am.replace("12", "0")
+		minute12am = int(E_Minute)
+		time12am = hour12am + ":" + str(minute12am).zfill(2)
+		return time12am
+
+  except:
+  	hour24 = int(E_Hour)
+  	minute24 = int(E_Minute)
+  	if hour24 >12 :
+  		hour24 =hour24 - 12
+  		time24 = hour24 + ":" + str(minute24).zfill(2)+" pm"
+  		return time24
+  	else:
+  		time24 = hour24 + ":" + str(minute24).zfill(2)+" am"
+  		return time24
+
+
+  pass
+
+t="21:00"
+print(convert_time(t))
