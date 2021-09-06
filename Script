@@ -39,5 +39,5 @@ def convert_time(time):
 
   pass
 
-t="5:05"
+t="10:05"
 print(convert_time(t))
